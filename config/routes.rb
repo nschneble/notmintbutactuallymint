@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :accounts
+  resources :accounts do
+    resources :transactions
+  end
+
+  resources :transactions
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

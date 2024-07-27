@@ -23,4 +23,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_27_224634) do
     t.unique_constraint ["name"]
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.string "description", default: "Description", null: false
+    t.float "amount", default: 0.0, null: false
+    t.bigint "account_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_transactions_on_account_id"
+  end
+
 end
