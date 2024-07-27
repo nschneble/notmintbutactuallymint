@@ -3,8 +3,7 @@
 ## 💎 **Features**
 *Things to make the app more awesome*
 
-- [ ] Scaffold initial data models
-- [ ] Add seeds
+- [ ] Add limit to credit cards
 
 ## 🚧 **Tech Debt**
 *Things to make the app suck less*
