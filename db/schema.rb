@@ -32,4 +32,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_27_224634) do
     t.index ["account_id"], name: "index_transactions_on_account_id"
   end
 
+  create_table "wallets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

@@ -14,5 +14,7 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
       t.belongs_to :account
       t.timestamps
     end
+
+    create_table :wallets, &:timestamps
   end
 end
