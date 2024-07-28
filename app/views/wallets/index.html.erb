@@ -1,21 +1,38 @@
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+  <%= render "common/message", message: notice, color: "green" %>
+  <%= render "common/message", message: alert, color: "red" %>
 
   <% content_for :title, "Wallets" %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Wallets</h1>
-    <%= link_to "New wallet", new_wallet_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
+  <div class="w-full xl:w-9/12 mx-auto flex">
+    <section class="container mx-auto px-4">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="flex items-center gap-x-3">
+          <%= image_tag asset_path("money.png"), size: "32x32" %>
+          <h1 class="text-2xl text-gray-800 font-medium"><%= link_to t("app.title"), root_path %></h1>
+          <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full max-sm:hidden"><%= Transaction.num_records %></span>
+        </div>
+      </div>
 
-  <div id="wallets" class="min-w-full">
-    <% @wallets.each do |wallet| %>
-      <%= render wallet %>
-      <p>
-        <%= link_to "Show this wallet", wallet, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+      <div class="mt-6 md:flex md:items-center md:justify-between">
+        <%= form_with url: root_path, method: :get, class: "md:w-full", data: { controller: "filter", turbo_frame: "transactions", turbo_action: "advance", filter_app_title: t("app.title"), filter_page_title: t("app.filter_title") } do |form| %>
+          <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg">
+            <button class="button-filter-sorted px-5 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 <%= filter_nav_classes("sorted", @filter, @search) %>" data-action="click->filter#change" data-filter="sorted"><%= t("home.tabs.sorted") %></button>
+            <button class="button-filter-dinero px-5 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 <%= filter_nav_classes("dinero", @filter, @search) %>" data-action="click->filter#change" data-filter="dinero"><%= t("home.tabs.dinero") %></button>
+            <button class="button-filter-credit px-5 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 <%= filter_nav_classes("credit", @filter, @search) %>" data-action="click->filter#change" data-filter="credit"><%= t("home.tabs.credit") %></button>
+          </div>
+          <%= form.hidden_field :filter, value: @filter %>
+        <% end %>
+
+        <div class="mt-3 md:mt-0 relative flex items-center">
+          <span class="absolute"><span class="w-5 h-5 mx-3 text-gray-400 opacity-50">🔍</span></span>
+          <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "filter search", action: "search:reset->filter#deselect", turbo_frame: "transactions", turbo_action: "advance", search_app_title: t("app.title"), search_page_title: t("app.search_title") } do |form| %>
+            <input type="text" name="search" value="<%= params[:search] %>" placeholder="<%= t("home.search") %>" class="w-full lg:w-80 pl-11 pr-5 py-1.5 placeholder-gray-400/70 text-gray-700 bg-white border border-gray-200 focus:border-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none rounded-lg block" data-action="input->search#search" />
+          <% end %>
+        </div>
+      </div>
+
+      <%= render "transactions/transactions", transactions: @transactions %>
+    </section>
   </div>
 </div>

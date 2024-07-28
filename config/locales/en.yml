@@ -28,7 +28,24 @@
 #       enabled: "ON"
 
 en:
+  app:
+    filter_title: "Not Mint | "
+    search_title: "Not Mint | Search: "
+    title: "Not Mint"
   controllers:
     create: " was successfully created."
     delete: " was successfully destroyed."
     update: " was successfully updated."
+  empty:
+    message: "No transactions found"
+    suggestion: "Search for something else?"
+  home:
+    search: "Search"
+    table:
+      amount: "Amount"
+      date: "Date"
+      description: "Description"
+    tabs:
+      credit: "Credit Cards"
+      dinero: "Bank Accounts"
+      sorted: "All"

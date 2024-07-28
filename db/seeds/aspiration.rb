@@ -7,8 +7,8 @@ Account.create_with(
 
 # Initial balance
 Transaction.create_with(
-  amount: 0,
-  account: Account.s("Aspiration")
+  amount: 0
 ).find_or_create_by!(
-  description: "Initial balance"
+  description: "Initial balance",
+  account: Account.s("Aspiration")
 )

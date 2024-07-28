@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "transactions" do %>
+  <div class="mt-6 flex flex-col">
+    <div class="min-w-full align-middle inline-block">
+      <div class="overflow-hidden border border-gray-200 rounded-lg">
+
+        <div class="table min-w-full divide-y divide-gray-200">
+          <div class="table-header-group bg-gray-50">
+            <div class="table-row text-sm font-normal text-left">
+              <div class="table-cell w-3/12 pl-4 py-3.5 text-gray-500"><%= t("home.table.date") %></div>
+              <div class="table-cell w-6/12 px-4 py-3.5 text-gray-500"><%= t("home.table.description") %></div>
+              <div class="table-cell w-3/12 px-4 py-3.5 text-gray-500"><%= t("home.table.amount") %></div>
+            </div>
+          </div>
+
+          <div class="table-row-group bg-white divide-y divide-gray-200">
+            <% if transactions.any? %>
+              <%= render transactions %>
+            <% else %>
+              <%= render "transactions/transaction", transaction: Transaction.empty %>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,17 +1,18 @@
-<div id="<%= dom_id transaction %>">
-  <p>
-    <strong>Description:</strong>
-    <%= transaction.description %>
-  </p>
+<div class="table-row text-sm text-left font-normal">
+  <div class="table-cell w-3/12 pl-4 py-3.5 align-middle">
+    <% unless transaction.empty? %>
+      <p class="text-gray-700"><%= transaction.created_at.strftime("%b %e, %Y") %></p>
+    <% end %>
+  </div>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= transaction.amount %>
-  </p>
+  <div class="table-cell w-6/12 px-4 py-3.5">
+    <p class="text-gray-800 font-medium"><%= transaction.description %></p>
+    <p class="text-gray-600"><%= transaction.account.name %></p>
+  </div>
 
-  <p>
-    <strong>Account:</strong>
-    <%= transaction.account_id %>
-  </p>
-
+  <div class="table-cell w-3/12 px-4 py-3.5 align-middle">
+    <% unless transaction.empty? %>
+      <p class="text-gray-700"><%= number_to_currency(transaction.amount, :unit => "$") %></p>
+    <% end %>
+  </div>
 </div>
