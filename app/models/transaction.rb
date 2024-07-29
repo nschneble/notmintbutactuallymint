@@ -2,6 +2,9 @@
 class Transaction < ApplicationRecord
   belongs_to :account
 
+  validates :description, presence: true
+  validates :amount, numericality: true
+
   extend Pagy::Searchkick
 
   searchkick
