@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  namespace :admin do
+    resources :accounts
+    resources :transactions
+    resources :wallets
+
+    root to: "accounts#index"
+  end
+
   resources :accounts do
     resources :transactions
   end

@@ -82,3 +82,9 @@ gem "pagy", "~> 9.0"
 # Search
 gem "opensearch-ruby"
 gem "searchkick"
+
+# Admin dashboard
+gem "administrate"
+
+# Authentication
+gem "devise"
