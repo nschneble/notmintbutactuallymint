@@ -2,6 +2,10 @@
 class Transaction < ApplicationRecord
   belongs_to :account
 
+  extend Pagy::Searchkick
+
+  searchkick
+
   scope :credit, -> { joins(:account).where(account: { credit: true }).sorted }
   scope :dinero, -> { joins(:account).where(account: { credit: false }).sorted }
   scope :sorted, -> { order(created_at: :desc) }
@@ -10,6 +14,15 @@ class Transaction < ApplicationRecord
     return false if scope.blank?
 
     send(:generated_relation_methods).instance_methods.include? scope.to_sym
+  end
+
+  # Searchkick guidance
+  # https://gist.github.com/JasonTrue/3cd6a7094e23cd72bfb870604521f415#indexing
+  def search_data
+    {
+      description:,
+      amount:
+    }
   end
 
   def self.empty

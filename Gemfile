@@ -78,3 +78,7 @@ gem "tailwindcss-rails", "~> 2.6"
 
 # Pagination
 gem "pagy", "~> 9.0"
+
+# Search
+gem "opensearch-ruby"
+gem "searchkick"

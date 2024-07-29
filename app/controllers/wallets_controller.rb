@@ -7,7 +7,7 @@ class WalletsController < ApplicationController
     @pagy, @transactions = if @filter.present?
                              pagy(Transaction.send(@filter.to_sym))
                            elsif @search.present?
-                             pagy(Transaction.where("description ILIKE ?", "%#{@search}%").sorted)
+                             pagy_searchkick(Transaction.pagy_search(@search))
                            else
                              pagy(Transaction.sorted)
                            end
