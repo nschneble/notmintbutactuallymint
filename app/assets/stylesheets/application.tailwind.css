@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+.pagy {
+  @apply text-sm text-gray-500 font-normal flex space-x-1;
+  a:not(.gap) {
+    @apply px-5 py-2 text-gray-700 active:text-gray-800 bg-white hover:bg-gray-100 active:bg-gray-200 border rounded-md transition-colors duration-200 block;
+    &:not([href]) { /* disabled links */
+      @apply bg-white opacity-50 cursor-default;
+    }
+    &.current {
+      @apply text-white active:text-gray-100 bg-blue-600 opacity-100;
+    }
+  }
+  label {
+    @apply px-3 py-0.5 bg-gray-200 whitespace-nowrap rounded-md inline-block;
+    input {
+      @apply bg-gray-100 border-none rounded-md;
+    }
   }
 }
-
-*/

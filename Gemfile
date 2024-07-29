@@ -75,3 +75,6 @@ end
 
 # Rapidly build modern websites without ever leaving your HTML
 gem "tailwindcss-rails", "~> 2.6"
+
+# Pagination
+gem "pagy", "~> 9.0"

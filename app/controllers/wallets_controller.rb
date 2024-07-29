@@ -4,13 +4,13 @@ class WalletsController < ApplicationController
   before_action :set_search, only: %i[index]
 
   def index
-    @transactions = if @filter.present?
-                      Transaction.send(@filter.to_sym)
-                    elsif @search.present?
-                      Transaction.where("description ILIKE ?", "%#{@search}%").sorted
-                    else
-                      Transaction.sorted
-                    end
+    @pagy, @transactions = if @filter.present?
+                             pagy(Transaction.send(@filter.to_sym))
+                           elsif @search.present?
+                             pagy(Transaction.where("description ILIKE ?", "%#{@search}%").sorted)
+                           else
+                             pagy(Transaction.sorted)
+                           end
   end
 
   private
