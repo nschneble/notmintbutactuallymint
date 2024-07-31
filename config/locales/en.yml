@@ -49,3 +49,8 @@ en:
       credit: "Credit Cards"
       dinero: "Bank Accounts"
       sorted: "All"
+  login:
+    email: "Email"
+    password: "Password"
+    submit: "Log In"
+    title: "User Login"
