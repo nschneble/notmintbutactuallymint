@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
   create_table "accounts", force: :cascade do |t|
     t.string "name", default: "Account", null: false
     t.boolean "credit", default: false, null: false
+    t.float "limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 

@@ -5,6 +5,7 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
       t.string :name, null: false, default: "Account"
       t.unique_constraint [:name]
       t.boolean :credit, null: false, default: false
+      t.float :limit
       t.timestamps
     end
 

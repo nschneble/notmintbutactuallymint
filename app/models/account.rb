@@ -4,4 +4,5 @@ class Account < ApplicationRecord
 
   validates :name, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :credit, inclusion: [true, false]
+  validates :limit, numericality: { greater_than: 0, allow_nil: true }
 end

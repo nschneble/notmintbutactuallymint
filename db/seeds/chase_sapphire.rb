@@ -1,6 +1,7 @@
 # Chase Sapphire Reserve Credit Card
 Account.create_with(
-  credit: true
+  credit: true,
+  limit: 58_900.00
 ).find_or_create_by!(
   name: "Chase Sapphire Reserve"
 )
