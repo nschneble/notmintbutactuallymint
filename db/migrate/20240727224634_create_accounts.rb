@@ -1,6 +1,6 @@
 # This migration creates all of our tables and relationships
 class CreateAccounts < ActiveRecord::Migration[7.1]
-  def change # rubocop:disable Metrics/MethodLength
+  def change # rubocop:disable Metrics
     create_table :accounts do |t|
       t.string :name, null: false, default: "Account"
       t.unique_constraint [:name]
@@ -19,5 +19,6 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
     end
 
     create_table :wallets, &:timestamps
+    create_table :budgets, &:timestamps
   end
 end
