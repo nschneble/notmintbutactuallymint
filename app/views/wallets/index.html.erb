@@ -6,7 +6,9 @@
 
   <div class="w-full xl:w-9/12 mx-auto flex">
     <section class="container mx-auto px-4">
-      <div class="sm:flex sm:items-center sm:justify-between">
+      <%= render "common/navigation", current_page: "root" %>
+
+      <div class="mt-6 sm:flex sm:items-center sm:justify-between">
         <div>
           <div class="flex items-center gap-x-3">
             <%= image_tag asset_path("money.png"), size: "32x32" %>
