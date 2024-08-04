@@ -7,10 +7,13 @@
   <div class="w-full xl:w-9/12 mx-auto flex">
     <section class="container mx-auto px-4">
       <div class="sm:flex sm:items-center sm:justify-between">
-        <div class="flex items-center gap-x-3">
-          <%= image_tag asset_path("money.png"), size: "32x32" %>
-          <h1 class="text-2xl text-gray-800 font-medium"><%= link_to t("app.title"), root_path %></h1>
-          <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full max-sm:hidden"><%= Transaction.num_records %></span>
+        <div>
+          <div class="flex items-center gap-x-3">
+            <%= image_tag asset_path("money.png"), size: "32x32" %>
+            <h1 class="text-2xl text-gray-800 font-medium"><%= link_to t("app.title"), root_path %></h1>
+            <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full max-sm:hidden"><%= Account.num_records %></span>
+          </div>
+          <p class="mt-1 text-sm text-gray-500"><%= format_pending_transactions_sum(Transaction.pending) %></p>
         </div>
       </div>
 

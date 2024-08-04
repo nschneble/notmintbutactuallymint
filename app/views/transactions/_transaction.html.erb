@@ -12,7 +12,7 @@
 
   <div class="table-cell w-3/12 px-4 py-3.5 align-middle">
     <% unless transaction.empty? %>
-      <p class="text-right <%= transaction_amount_classes(transaction) %>"><%= format_transaction_amount(transaction) %></p>
+      <p class="text-right <%= transaction_amount_classes(transaction) %>"><%= format_transaction_amount(transaction.amount) %></p>
     <% end %>
   </div>
 </div>

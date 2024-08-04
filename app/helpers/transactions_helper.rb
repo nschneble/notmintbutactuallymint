@@ -10,7 +10,11 @@ module TransactionsHelper
     end
   end
 
-  def format_transaction_amount(transaction)
-    number_to_currency(transaction.amount, unit: "$")
+  def format_transaction_amount(amount)
+    number_to_currency(amount, unit: "$")
+  end
+
+  def format_pending_transactions_sum(transactions)
+    I18n.t("transactions.pending").sub("{{amount}}", format_transaction_amount(transactions.sum(:amount)))
   end
 end

@@ -14,6 +14,8 @@ class Transaction < ApplicationRecord
   scope :dinero, -> { joins(:account).where(account: { credit: false }).sorted }
   scope :sorted, -> { order(date: :desc, description: :asc) }
 
+  scope :pending, -> { where(post_date: nil) }
+
   def self.valid_scope?(scope)
     return false if scope.blank?
 
