@@ -5,7 +5,7 @@
 .pagy {
   @apply text-sm text-gray-500 font-normal flex space-x-1;
   a:not(.gap) {
-    @apply px-5 py-2 text-gray-700 active:text-gray-800 bg-white hover:bg-gray-100 active:bg-gray-200 border rounded-md transition-colors duration-200 block;
+    @apply px-5 py-2 text-gray-700 active:text-gray-800 bg-white hover:bg-gray-100 active:bg-gray-200 transition-colors duration-200 border rounded-md block;
     &:not([href]) { /* disabled links */
       @apply bg-white opacity-50 cursor-default;
     }
