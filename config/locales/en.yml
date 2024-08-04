@@ -54,3 +54,5 @@ en:
     password: "Password"
     submit: "Log In"
     title: "User Login"
+  transactions:
+    pending: "You have {{amount}} in pending transactions."
