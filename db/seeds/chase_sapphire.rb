@@ -6,10 +6,12 @@ Account.create_with(
   name: "Chase Sapphire Reserve"
 )
 
-# Initial Balance
+# Sample Data from Aug 1
 Transaction.create_with(
-  amount: 0
+  date: "2024-08-01",
+  post_date: "2024-08-01",
+  amount: -2_980.33
 ).find_or_create_by!(
-  description: "Initial Balance",
+  description: "August Statement",
   account: Account.s("Chase Sapphire Reserve")
 )

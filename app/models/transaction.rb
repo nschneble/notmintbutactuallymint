@@ -2,8 +2,9 @@
 class Transaction < ApplicationRecord
   belongs_to :account
 
-  validates :description, presence: true
+  validates :description, :date, presence: true
   validates :amount, numericality: true
+  validates :post_date, comparison: { greater_than_or_equal_to: :date, allow_nil: true }
 
   extend Pagy::Searchkick
 
@@ -11,12 +12,16 @@ class Transaction < ApplicationRecord
 
   scope :credit, -> { joins(:account).where(account: { credit: true }).sorted }
   scope :dinero, -> { joins(:account).where(account: { credit: false }).sorted }
-  scope :sorted, -> { order(created_at: :desc) }
+  scope :sorted, -> { order(date: :desc, description: :asc) }
 
   def self.valid_scope?(scope)
     return false if scope.blank?
 
     send(:generated_relation_methods).instance_methods.include? scope.to_sym
+  end
+
+  def pending?
+    post_date.nil?
   end
 
   # Searchkick guidance

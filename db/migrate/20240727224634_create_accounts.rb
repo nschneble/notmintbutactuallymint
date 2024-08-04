@@ -10,6 +10,8 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
     end
 
     create_table :transactions do |t|
+      t.date :date, null: false, default: Time.zone.today
+      t.date :post_date
       t.string :description, null: false, default: "Description"
       t.float :amount, null: false, default: 0
       t.belongs_to :account
