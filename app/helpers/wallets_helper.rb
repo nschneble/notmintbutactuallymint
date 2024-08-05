@@ -31,7 +31,7 @@ module WalletsHelper
     if item.eql?(current_page)
       I18n.t("nav.#{item}")
     else
-      link_to I18n.t("nav.#{item}"), "#{item}_path"
+      link_to I18n.t("nav.#{item}"), :"#{item}"
     end
   end
 end
