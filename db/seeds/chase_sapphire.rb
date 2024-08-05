@@ -7,11 +7,10 @@ Account.create_with(
 )
 
 # Sample Data from Aug 1
-Transaction.create_with(
+Transaction.create!(
   date: "2024-08-01",
   post_date: "2024-08-01",
-  amount: -2_980.33
-).find_or_create_by!(
+  amount: -2_980.33,
   description: "August Statement",
   account: Account.s("Chase Sapphire Reserve")
 )
