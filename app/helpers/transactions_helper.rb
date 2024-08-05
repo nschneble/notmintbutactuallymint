@@ -15,6 +15,7 @@ module TransactionsHelper
   end
 
   def format_pending_transactions_sum(transactions)
-    I18n.t("transactions.pending").sub("{{amount}}", format_transaction_amount(transactions.sum(:amount)))
+    sum = transactions.sum { |transaction| transaction.amount.abs }
+    I18n.t("transactions.pending").sub("{{amount}}", format_transaction_amount(sum))
   end
 end
