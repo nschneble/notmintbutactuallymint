@@ -29,8 +29,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", default: "Category", null: false
+    t.bigint "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_categories_on_section_id"
+    t.unique_constraint ["name"]
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "name", default: "Section", null: false
+    t.string "color", default: "blue", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
+    t.unique_constraint ["name"]
+  end
+
   create_table "transactions", force: :cascade do |t|
-    t.date "date", default: "2024-08-04", null: false
+    t.date "date", default: "2024-08-06", null: false
     t.date "post_date"
     t.string "description", default: "Description", null: false
     t.float "amount", default: 0.0, null: false

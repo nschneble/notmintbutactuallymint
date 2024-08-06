@@ -18,6 +18,20 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
+    create_table :sections do |t|
+      t.string :name, null: false, default: "Section"
+      t.unique_constraint [:name]
+      t.string :color, null: false, default: "blue"
+      t.timestamps
+    end
+
+    create_table :categories do |t|
+      t.string :name, null: false, default: "Category"
+      t.unique_constraint [:name]
+      t.belongs_to :section
+      t.timestamps
+    end
+
     create_table :wallets, &:timestamps
     create_table :budgets, &:timestamps
   end

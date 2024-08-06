@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :budgets
+  resources :categories
+  resources :sections
   resources :transactions
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
