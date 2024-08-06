@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class AccountDashboard < Administrate::BaseDashboard
+class CategoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,10 +9,8 @@ class AccountDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    credit: Field::Boolean,
-    limit: Field::Number.with_options(decimals: 2),
     name: Field::String,
-    transactions: Field::HasMany,
+    section: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -24,19 +22,17 @@ class AccountDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    credit
-    limit
     name
+    section
+    created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    credit
-    limit
     name
-    transactions
+    section
     created_at
     updated_at
   ].freeze
@@ -45,10 +41,8 @@ class AccountDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    credit
-    limit
     name
-    transactions
+    section
   ].freeze
 
   # COLLECTION_FILTERS
@@ -63,10 +57,10 @@ class AccountDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how accounts are displayed
+  # Overwrite this method to customize how categories are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(account)
-  #   "Account ##{account.id}"
+  # def display_resource(category)
+  #   "Category ##{category.id}"
   # end
 end

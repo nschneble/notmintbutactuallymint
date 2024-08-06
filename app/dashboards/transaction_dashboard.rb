@@ -11,6 +11,8 @@ class TransactionDashboard < Administrate::BaseDashboard
     id: Field::Number,
     account: Field::BelongsTo,
     amount: Field::Number.with_options(decimals: 2),
+    date: Field::Date,
+    post_date: Field::Date,
     description: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -25,6 +27,7 @@ class TransactionDashboard < Administrate::BaseDashboard
     id
     account
     amount
+    date
     description
   ].freeze
 
@@ -34,6 +37,8 @@ class TransactionDashboard < Administrate::BaseDashboard
     id
     account
     amount
+    date
+    post_date
     description
     created_at
     updated_at
@@ -45,6 +50,8 @@ class TransactionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     account
     amount
+    date
+    post_date
     description
   ].freeze
 
