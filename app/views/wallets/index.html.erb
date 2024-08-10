@@ -15,17 +15,17 @@
             <h1 class="text-2xl text-gray-800 font-medium"><%= link_to t("app.title"), root_path %></h1>
             <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full max-sm:hidden"><%= Account.num_records %></span>
           </div>
-          <p class="mt-1 text-sm text-gray-500"><%= format_pending_transactions_sum(Transaction.pending) %></p>
+          <p class="mt-1 pl-0.5 text-sm text-gray-500"><%= format_pending_transactions_sum(Transaction.pending) %></p>
         </div>
 
         <div class="mt-4 flex items-center gap-x-3">
-          <button class="-mb-0.5 px-5 py-1.5 text-white active:text-gray-100 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 border border-blue-600 hover:border-blue-700 active:border-blue-800 transition-colors duration-200 rounded-lg focus:shadow-outline block">
+          <button class="-mb-0.5 px-5 py-2 text-sm text-white active:text-gray-100 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 border border-blue-600 hover:border-blue-700 active:border-blue-800 transition-colors duration-200 rounded-lg block">
             <span><%= t("home.new_transaction") %></span>
           </button>
         </div>
       </div>
 
-      <div class="mt-6 md:flex md:items-center md:justify-between">
+      <div class="mt-4 md:flex md:items-center md:justify-between">
         <%= form_with url: root_path, method: :get, class: "md:w-full", data: { controller: "filter", turbo_frame: "transactions", turbo_action: "advance", filter_app_title: t("app.title"), filter_page_title: t("app.filter_title") } do |form| %>
           <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg">
             <button class="button-filter-sorted px-5 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 <%= filter_nav_classes("sorted", @filter, @search) %>" data-action="click->filter#change" data-filter="sorted"><%= t("home.tabs.sorted") %></button>
