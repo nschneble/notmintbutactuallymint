@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Dir[Rails.root.join("db/seeds/*.rb")].each do |seed|
-  load seed
+%w[categories accounts users].each do |folder|
+  Dir[Rails.root.join("db/seeds/#{folder}/*.rb")].each do |seed|
+    load seed
+  end
 end
