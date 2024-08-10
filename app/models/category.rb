@@ -2,5 +2,5 @@
 class Category < ApplicationRecord
   belongs_to :section
 
-  validates :name, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
+  validates :name, uniqueness: true
 end

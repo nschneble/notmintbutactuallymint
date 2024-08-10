@@ -15,13 +15,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string "name", default: "Account", null: false
+    t.string "name", default: "", null: false
     t.boolean "credit", default: false, null: false
     t.float "limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-    t.unique_constraint ["name"]
+    t.index ["name"], name: "index_accounts_on_name", unique: true
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -30,27 +29,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", default: "Category", null: false
+    t.string "name", default: "", null: false
     t.bigint "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
     t.index ["section_id"], name: "index_categories_on_section_id"
-    t.unique_constraint ["name"]
   end
 
   create_table "sections", force: :cascade do |t|
-    t.string "name", default: "Section", null: false
-    t.string "color", default: "blue", null: false
+    t.string "name", default: "", null: false
+    t.string "color", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-    t.unique_constraint ["name"]
+    t.index ["name"], name: "index_sections_on_name", unique: true
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.date "date", default: "2024-08-06", null: false
+    t.date "date", default: "2024-08-10", null: false
     t.date "post_date"
-    t.string "description", default: "Description", null: false
+    t.string "description", default: "", null: false
     t.float "amount", default: 0.0, null: false
     t.bigint "account_id"
     t.datetime "created_at", null: false
