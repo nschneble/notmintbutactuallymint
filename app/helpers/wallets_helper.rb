@@ -21,7 +21,7 @@ module WalletsHelper
 
   def nav_item_classes(item, current_page)
     if item.eql?(current_page)
-      "text-gray-700 underline"
+      "text-gray-700 underline cursor-default active"
     else
       "text-blue-600 hover:text-blue-700 active:text-blue-800 transition-colors duration-200 hover:underline active:underline"
     end
