@@ -51,9 +51,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
     t.string "description", default: "", null: false
     t.float "amount", default: 0.0, null: false
     t.bigint "account_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["category_id"], name: "index_transactions_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,4 +75,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "categories", "sections"
+  add_foreign_key "transactions", "accounts"
+  add_foreign_key "transactions", "categories"
 end
