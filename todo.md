@@ -3,7 +3,6 @@
 ## 💎 **Features**
 *Things to make the app more awesome*
 
-- [ ] Add transaction categories with badge colors
 - [ ] Replace account pills with dropdown
   - [ ] Show all transactions by default
   - [ ] Sample 1: https://tailwindui.com/components/application-ui/elements/dropdowns

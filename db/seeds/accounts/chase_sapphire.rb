@@ -12,5 +12,6 @@ Transaction.create!(
   post_date: "2024-08-01",
   amount: -2_980.33,
   description: "August Statement",
+  category: Category.s("Statements"),
   account: Account.s("Chase Sapphire Reserve")
 )

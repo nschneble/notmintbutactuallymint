@@ -1,0 +1,5 @@
+<% if message.present? && color.present? %>
+  <div class="inline px-3 py-1 <%= badge_color_classes(color) %> rounded-full">
+    <%= message %>
+  </div>
+<% end %>

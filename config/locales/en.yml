@@ -32,6 +32,8 @@ en:
     filter_title: "Not Mint | "
     search_title: "Not Mint | Search: "
     title: "Not Mint"
+  categories:
+    none: "None"
   controllers:
     create: " was successfully created."
     delete: " was successfully destroyed."
@@ -44,6 +46,7 @@ en:
     search: "Search"
     table:
       amount: "Amount"
+      category: "Category"
       date: "Date"
       description: "Description"
     tabs:
@@ -59,5 +62,7 @@ en:
     accounts: "Accounts"
     budgets: "Budgets"
     root: "Summary"
+  sections:
+    none: "None"
   transactions:
     pending: "You have {{amount}} in pending transactions."

@@ -11,6 +11,7 @@ Transaction.create!(
   post_date: "2024-08-01",
   amount: 5_000.00,
   description: "August Statement",
+  category: Category.s("Statements"),
   account: aspiration
 )
 
@@ -37,6 +38,7 @@ Transaction.create!(
   post_date: "2024-08-02",
   amount: 1_535.57,
   description: "Transfer from Fidelity",
+  category: Category.s("Transfers"),
   account: aspiration
 )
 

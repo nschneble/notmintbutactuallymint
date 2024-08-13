@@ -1,5 +1,5 @@
 <div class="table-row text-sm text-left font-normal">
-  <div class="table-cell w-3/12 pl-4 py-3.5 align-middle">
+  <div class="table-cell w-2/12 pl-4 py-3.5 align-middle">
     <% unless transaction.empty? %>
       <p class="text-gray-700"><%= transaction.date.strftime("%b %e, %Y") %></p>
     <% end %>
@@ -10,7 +10,11 @@
     <p class="text-gray-600"><%= transaction.account.name %></p>
   </div>
 
-  <div class="table-cell w-3/12 px-4 py-3.5 align-middle">
+  <div class="table-cell w-2/12 px-4 py-3.5 align-middle">
+    <%= render "common/badge", message: transaction.category.parent, color: transaction.category.color %>
+  </div>
+
+  <div class="table-cell w-2/12 px-4 py-3.5 align-middle">
     <% unless transaction.empty? %>
       <p class="text-right <%= transaction_amount_classes(transaction) %>"><%= format_transaction_amount(transaction.amount) %></p>
     <% end %>

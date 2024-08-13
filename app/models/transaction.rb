@@ -1,7 +1,7 @@
 # This model represents an account transaction
 class Transaction < ApplicationRecord
   belongs_to :account
-  belongs_to :category, optional: true
+  belongs_to :category
 
   validates :description, :date, presence: true
   validates :amount, numericality: true
@@ -25,6 +25,10 @@ class Transaction < ApplicationRecord
 
   def pending?
     post_date.nil?
+  end
+
+  def uncategorized?
+    category.none?
   end
 
   # Searchkick guidance
