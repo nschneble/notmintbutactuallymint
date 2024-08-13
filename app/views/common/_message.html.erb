@@ -1,5 +1,7 @@
 <% if message.present? && color.present? %>
-  <div class="w-full xl:w-9/12 mx-auto flex">
-    <p class="mb-5 px-3 py-2 bg-<%= color %>-50 text-<%= color %>-500 font-medium rounded-lg inline-block"><%= message %></p>
+  <div class="mx-auto w-full xl:w-9/12 flex">
+    <p class="mb-5 px-3 py-2 font-medium <%= badge_color_classes(color) %> rounded-lg inline-block">
+      <%= message %>
+    </p>
   </div>
 <% end %>
