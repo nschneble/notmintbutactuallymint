@@ -42,6 +42,7 @@ en:
     message: "No transactions found"
     suggestion: "Search for something else?"
   home:
+    edit: "Edit"
     new_transaction: "⊕ New Transaction"
     search: "Search"
     table:

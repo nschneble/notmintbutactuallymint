@@ -5,7 +5,7 @@
     <% end %>
   </div>
 
-  <div class="table-cell w-6/12 px-4 py-3.5">
+  <div class="table-cell w-5/12 px-4 py-3.5">
     <p class="text-gray-800 font-medium"><%= transaction.description %></p>
     <p class="text-gray-600"><%= transaction.account.name %></p>
   </div>
@@ -19,6 +19,14 @@
   <div class="table-cell w-2/12 px-4 py-3.5 align-middle">
     <% unless transaction.empty? %>
       <p class="text-right <%= transaction_amount_classes(transaction) %>"><%= format_transaction_amount(transaction.amount) %></p>
+    <% end %>
+  </div>
+
+  <div class="table-cell w-1/12 px-4 py-3.5 align-middle">
+    <% unless transaction.empty? %>
+      <button class="ml-auto px-3 py-1 text-xs text-gray-700 active:text-gray-800 bg-white hover:bg-gray-50 active:bg-gray-100 border transition-colors duration-200 rounded-lg block">
+        <span><%= t("home.edit") %></span>
+      </button>
     <% end %>
   </div>
 </div>
