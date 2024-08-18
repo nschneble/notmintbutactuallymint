@@ -43,6 +43,7 @@ class Transaction < ApplicationRecord
   def self.empty
     Transaction.new(
       description: I18n.t("empty.message"),
+      category: Category.s("None"),
       account: Account.new(
         name: I18n.t("empty.suggestion")
       )
