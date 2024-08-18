@@ -38,7 +38,7 @@
         <div class="mt-3 md:mt-0 relative flex items-center">
           <span class="absolute"><span class="w-5 h-5 mx-3 text-gray-400 opacity-50">🔍</span></span>
           <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "filter search", action: "search:reset->filter#deselect", turbo_frame: "transactions", turbo_action: "advance", search_app_title: t("app.title"), search_page_title: t("app.search_title") } do |form| %>
-            <input type="text" name="search" value="<%= params[:search] %>" placeholder="<%= t("home.search") %>" class="w-full lg:w-80 pl-11 pr-5 py-1.5 placeholder-gray-400/70 text-gray-700 bg-white border border-gray-200 focus:border-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none rounded-lg block" data-action="input->search#search" />
+            <input type="text" name="search" value="<%= params[:search] %>" placeholder="<%= t("home.search") %>" data-action="search#search" class="w-full lg:w-80 pl-11 pr-5 py-1.5 placeholder-gray-400/70 text-gray-700 bg-white border border-gray-200 focus:border-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none rounded-lg block" />
           <% end %>
         </div>
       </div>
