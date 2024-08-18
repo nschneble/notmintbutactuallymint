@@ -1,5 +1,6 @@
 # Aspiration Spend & Save bank account
 aspiration = Account.create_with(
+  slug: "aspiration",
   credit: false
 ).find_or_create_by!(
   name: "Aspiration"

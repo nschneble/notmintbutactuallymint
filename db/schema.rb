@@ -16,11 +16,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "name", default: "", null: false
+    t.string "slug", default: "", null: false
     t.boolean "credit", default: false, null: false
     t.float "limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_accounts_on_name", unique: true
+    t.index ["slug"], name: "index_accounts_on_slug", unique: true
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -46,7 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.date "date", default: "2024-08-10", null: false
+    t.date "date", default: "2024-08-18", null: false
     t.date "post_date"
     t.string "description", default: "", null: false
     t.float "amount", default: 0.0, null: false

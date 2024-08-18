@@ -15,6 +15,7 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
 
     create_table :accounts do |t|
       t.string :name, null: false, default: ""
+      t.string :slug, null: false, default: ""
       t.boolean :credit, null: false, default: false
       t.float :limit
       t.timestamps
@@ -36,5 +37,6 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
     add_index :sections, :name, unique: true
     add_index :categories, :name, unique: true
     add_index :accounts, :name, unique: true
+    add_index :accounts, :slug, unique: true
   end
 end
