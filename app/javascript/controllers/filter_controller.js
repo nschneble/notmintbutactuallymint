@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  change() {
+  change(event) {
     const filter = event.target.getAttribute("data-filter")
     const button = document.querySelector(`.button-filter-${filter}`)
 
@@ -38,7 +38,7 @@ function toggleStyles(selector, alwaysToggle = false) {
     button.classList.toggle("active")
     button.classList.toggle("text-gray-700")
     button.classList.toggle("active:text-gray-800")
-    button.classList.toggle("hover:bg-gray-100")
-    button.classList.toggle("active:bg-gray-200")
+    button.classList.toggle("hover:bg-gray-50")
+    button.classList.toggle("active:bg-gray-100")
   }
 }

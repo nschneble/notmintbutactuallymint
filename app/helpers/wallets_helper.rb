@@ -15,7 +15,7 @@ module WalletsHelper
        (filter.nil? && search.nil? && item.eql?("sorted"))
       "text-white bg-blue-600 cursor-default active"
     else
-      "text-gray-700 active:text-gray-800 hover:bg-gray-100 active:bg-gray-200"
+      "text-gray-700 active:text-gray-800 hover:bg-gray-50 active:bg-gray-100"
     end
   end
 
