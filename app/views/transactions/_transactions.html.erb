@@ -3,7 +3,7 @@
     <div class="min-w-full align-middle inline-block">
       <div class="overflow-hidden border border-gray-200 rounded-lg">
 
-        <div class="table min-w-full divide-y divide-gray-200">
+        <div class="table min-w-full">
           <div class="table-header-group bg-gray-50">
             <div class="table-row text-sm font-normal text-left">
               <div class="table-cell w-2/12 pl-4 py-3.5 text-gray-500"><%= t("home.table.date") %></div>
@@ -11,9 +11,10 @@
               <div class="table-cell w-2/12 px-4 py-3.5 text-gray-500"><span class="px-3"><%= t("home.table.category") %></span></div>
               <div class="table-cell w-2/12 px-4 py-3.5 text-gray-500 text-right"><%= t("home.table.amount") %></div>
             </div>
+            <hr />
           </div>
 
-          <div class="table-row-group bg-white divide-y divide-gray-200">
+          <div class="table-row-group bg-white">
             <% if transactions.any? %>
               <%= render transactions %>
             <% else %>
