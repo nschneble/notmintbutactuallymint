@@ -11,7 +11,9 @@
   </div>
 
   <div class="table-cell w-2/12 px-4 py-3.5 align-middle">
-    <%= render "common/badge", message: transaction.category.parent, color: transaction.category.color %>
+    <% unless transaction.empty? %>
+      <%= render "common/badge", message: transaction.category.parent, color: transaction.category.color %>
+    <% end %>
   </div>
 
   <div class="table-cell w-2/12 px-4 py-3.5 align-middle">
