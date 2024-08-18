@@ -12,6 +12,7 @@ class AccountDashboard < Administrate::BaseDashboard
     credit: Field::Boolean,
     limit: Field::Number.with_options(decimals: 2),
     name: Field::String,
+    slug: Field::String,
     transactions: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -24,9 +25,8 @@ class AccountDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    credit
-    limit
     name
+    slug
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,6 +36,7 @@ class AccountDashboard < Administrate::BaseDashboard
     credit
     limit
     name
+    slug
     transactions
     created_at
     updated_at
@@ -48,6 +49,7 @@ class AccountDashboard < Administrate::BaseDashboard
     credit
     limit
     name
+    slug
     transactions
   ].freeze
 
