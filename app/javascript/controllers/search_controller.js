@@ -8,11 +8,20 @@ export default class extends Controller {
 
     document.title = pageTitle + search
 
-    this.dispatch("reset")
-
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
+      const selectInput = document.querySelector(`input[name="select"]`)
+      this.element.appendChild(selectInput)
+
       this.element.requestSubmit()
     }, 200)
+  }
+
+  clear() {
+    const pageTitle = this.data.get("appTitle")
+    document.title = pageTitle
+
+    const searchInput = document.querySelector(`input[name="search"]`)
+    searchInput.value = ""
   }
 }

@@ -1,0 +1,20 @@
+<div class="w-full">
+  <button data-controller="select" data-action="select#toggle" class="button-select cursor-default w-full lg:w-64 px-5 py-2 text-sm text-left text-gray-700 bg-white border rounded-lg block">
+    <span><%= selected_account_name(selected_account) %></span>
+    <span class="float-right pl-5">⇅</span>
+  </button>
+
+  <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "select", turbo_frame: "transactions", turbo_action: "replace" } do |form| %>
+    <ul class="menu-select pointer-events-none absolute overflow-auto z-10 w-full lg:w-64 mt-1 text-sm text-gray-700 bg-white border opacity-0 transition-opacity duration-200 shadow-lg rounded-lg">
+      <% accounts.each do |account| %>
+        <li>
+          <button data-action="select#change select#toggle" data-select="<%= account.slug %>" class="option-select <%= account_option_button_classes(account, selected_account) %>">
+            <span class="<%= account_option_name_classes(account, selected_account) %>"><%= account.name %></span>
+            <span class="<%= account_option_icon_classes(account, selected_account) %>">✓</span>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.hidden_field :select, value: selected_account %>
+  <% end %>
+</div>

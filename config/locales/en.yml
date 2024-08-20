@@ -45,6 +45,8 @@ en:
     edit: "Edit"
     new_transaction: "⊕ New Transaction"
     search: "Search"
+    select:
+      all: "All Accounts"
     table:
       amount: "Amount"
       category: "Category"

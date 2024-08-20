@@ -36,7 +36,7 @@ class Transaction < ApplicationRecord
   def search_data
     {
       description:,
-      amount:
+      account_id: account.id
     }
   end
 
