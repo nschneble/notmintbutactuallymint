@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :accounts
+    resources :budgets
+    resources :categories
+    resources :sections
     resources :transactions
-    resources :wallets
 
     root to: "accounts#index"
   end
