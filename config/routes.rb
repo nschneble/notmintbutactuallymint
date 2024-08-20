@@ -5,11 +5,14 @@ Rails.application.routes.draw do
     resources :accounts
     resources :budgets
     resources :categories
+    resources :metrics
     resources :sections
     resources :transactions
 
     root to: "accounts#index"
   end
+
+  resources :metrics
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

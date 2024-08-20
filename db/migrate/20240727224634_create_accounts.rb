@@ -33,6 +33,7 @@ class CreateAccounts < ActiveRecord::Migration[7.1]
 
     create_table :wallets, &:timestamps
     create_table :budgets, &:timestamps
+    create_table :metrics, &:timestamps
 
     add_index :sections, :name, unique: true
     add_index :categories, :name, unique: true
