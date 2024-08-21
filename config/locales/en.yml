@@ -62,9 +62,10 @@ en:
     submit: "Log In"
     title: "User Login"
   nav:
+    accounts: "Accounts"
     budgets: "Budgets"
     metrics: "Metrics"
-    root: "Accounts"
+    root: "Home"
   sections:
     none: "None"
   transactions:
