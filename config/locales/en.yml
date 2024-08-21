@@ -28,10 +28,6 @@
 #       enabled: "ON"
 
 en:
-  app:
-    filter_title: "Not Mint | "
-    search_title: "Not Mint | Search: "
-    title: "Not Mint"
   categories:
     none: "None"
   controllers:
@@ -68,5 +64,10 @@ en:
     root: "Home"
   sections:
     none: "None"
+  titles:
+    default: "Not Mint"
+    search: "Not Mint | Search: "
+    select: "Not Mint | "
+    selsea: "Not Mint | {{select}} | Search: "
   transactions:
     pending: "You have {{amount}} in pending transactions."

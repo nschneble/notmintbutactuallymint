@@ -4,9 +4,17 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   search() {
     const search = document.querySelector(`input[name="search"]`).value
-    const pageTitle = this.data.get(search === "" ? "appTitle" : "pageTitle")
+    const select = document.querySelector(".button-select > span").textContent
 
-    document.title = pageTitle + search
+    if (search === "" && select !== "All Accounts") {
+      document.title = this.data.get("selectTitle") + select
+    } else if (search !== "" && select === "All Accounts") {
+      document.title = this.data.get("searchTitle") + search
+    } else if (search !== "" && select !== "All Accounts") {
+      document.title = this.data.get("selseaTitle").replace("{{select}}", select) + search
+    } else {
+      document.title = this.data.get("defaultTitle")
+    }
 
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
@@ -18,9 +26,6 @@ export default class extends Controller {
   }
 
   clear() {
-    const pageTitle = this.data.get("appTitle")
-    document.title = pageTitle
-
     const searchInput = document.querySelector(`input[name="search"]`)
     searchInput.value = ""
   }

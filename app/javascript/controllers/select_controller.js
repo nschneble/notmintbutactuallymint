@@ -22,8 +22,14 @@ export default class extends Controller {
       const select = button.getAttribute("data-select")
 
       if (!button.classList.contains("active")) {
-        const selectedOptionName = button.querySelector("span").textContent
-        document.querySelector(".button-select > span").textContent = selectedOptionName
+        const buttonText = button.querySelector("span").textContent
+        document.querySelector(".button-select > span").textContent = buttonText
+
+        if (select === "all") {
+          document.title = this.data.get("defaultTitle")
+        } else {
+          document.title = this.data.get("selectTitle") + buttonText
+        }
 
         const options = document.querySelectorAll(".option-select")
         options.forEach((option) => toggleSelectedOption(option, button === option))

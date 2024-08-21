@@ -14,6 +14,12 @@ class Account < ApplicationRecord
     Account.where(slug:).any?
   end
 
+  def self.name_from_slug(slug)
+    return unless valid_slug?(slug)
+
+    Account.find_by(slug:).name
+  end
+
   def self.all_accounts_placeholder
     Account.new(
       name: I18n.t("home.select.all"),

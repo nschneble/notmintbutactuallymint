@@ -12,7 +12,7 @@
         <div>
           <div class="flex items-center gap-x-3">
             <%= image_tag asset_path("money.png"), size: "32x32" %>
-            <h1 class="text-2xl text-gray-800 font-medium"><%= link_to t("app.title"), root_path %></h1>
+            <h1 class="text-2xl text-gray-800 font-medium"><%= link_to t("titles.default"), root_path %></h1>
             <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full max-sm:hidden"><%= Account.num_records %></span>
           </div>
           <p class="mt-1 pl-0.5 text-sm text-gray-500"><%= format_pending_transactions_sum(Transaction.pending) %></p>
@@ -30,7 +30,7 @@
 
         <div class="mt-3 md:mt-0 relative flex items-center">
           <span class="absolute"><span class="w-5 h-5 mx-3 text-gray-400 opacity-50">🔍</span></span>
-          <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "search select", action: "select:change@window->search#clear", turbo_frame: "transactions", turbo_action: "replace", search_app_title: t("app.title"), search_page_title: t("app.search_title") } do |form| %>
+          <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "search select", action: "select:change@window->search#clear", turbo_frame: "transactions", turbo_action: "replace", search_default_title: t("titles.default"), search_search_title: t("titles.search"), search_select_title: t("titles.select"), search_selsea_title: t("titles.selsea") } do |form| %>
             <input type="text" name="search" value="<%= params[:search] %>" placeholder="<%= t("home.search") %>" data-action="search#search" class="w-full lg:w-80 pl-11 pr-5 py-1.5 placeholder-gray-400/70 text-gray-700 bg-white border border-gray-200 focus:border-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none rounded-lg block" />
           <% end %>
         </div>

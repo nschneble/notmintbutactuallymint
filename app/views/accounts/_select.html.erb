@@ -4,7 +4,7 @@
     <span class="float-right pl-5">⇅</span>
   </button>
 
-  <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "select", turbo_frame: "transactions", turbo_action: "replace" } do |form| %>
+  <%= form_with url: root_path, method: :get, class: "w-full", data: { controller: "select", turbo_frame: "transactions", turbo_action: "replace", select_default_title: t("titles.default"), select_select_title: t("titles.select") } do |form| %>
     <ul class="menu-select pointer-events-none absolute overflow-auto z-10 w-full lg:w-64 mt-1 text-sm text-gray-700 bg-white border opacity-0 transition-opacity duration-200 shadow-lg rounded-lg">
       <% accounts.each do |account| %>
         <li>

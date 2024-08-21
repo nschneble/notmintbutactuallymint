@@ -1,21 +1,14 @@
 # Helper methods for wallets
 module WalletsHelper
-  def page_title(filter = nil, search = nil)
-    if filter.present? && !filter.eql?("sorted")
-      I18n.t("app.filter_title") + I18n.t("home.tabs.#{filter}")
-    elsif search.present?
-      I18n.t("app.search_title") + search
+  def page_title(search, select)
+    if search.blank? && select.present?
+      I18n.t("titles.select") + select
+    elsif search.present? && select.blank?
+      I18n.t("titles.search") + search
+    elsif search.present? && select.present?
+      I18n.t("titles.selsea").sub("{{select}}", select) + search
     else
-      I18n.t("app.title")
-    end
-  end
-
-  def filter_nav_classes(item, filter = nil, search = nil)
-    if (filter.present? && filter.eql?(item)) ||
-       (filter.nil? && search.nil? && item.eql?("sorted"))
-      "text-white bg-blue-600 cursor-default active"
-    else
-      "text-gray-700 active:text-gray-800 hover:bg-gray-50 active:bg-gray-100"
+      I18n.t("titles.default")
     end
   end
 
