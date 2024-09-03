@@ -1,4 +1,4 @@
-<div class="mr-2.5 sm:flex sm:items-center sm:justify-end gap-x-3 text-xs sm:text-sm font-medium">
+<div class="mr-2.5 sm:flex sm:items-center sm:justify-end gap-x-4 text-xs sm:text-sm font-medium">
   <% %w[root accounts metrics budgets].each do |item| %>
     <div class="<%= nav_item_classes(item, current_page) %> underline-offset-8">
       <%= nav_item_label(item, current_page) %>
