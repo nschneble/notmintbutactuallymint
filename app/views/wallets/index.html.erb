@@ -19,9 +19,7 @@
         </div>
 
         <div class="mt-4 flex items-center gap-x-3">
-          <button class="-mb-0.5 px-5 py-2 text-sm text-white active:text-gray-100 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 border border-blue-600 hover:border-blue-700 active:border-blue-800 transition-colors duration-200 rounded-lg block">
-            <span><%= t("home.new_transaction") %></span>
-          </button>
+          <%= link_to t("home.new_transaction"), new_transaction_path, data: { turbo_frame: dom_id(Transaction.new) }, class: "-mb-0.5 px-5 py-2 text-sm text-white active:text-gray-100 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 border border-blue-600 hover:border-blue-700 active:border-blue-800 transition-colors duration-200 rounded-lg block" %>
         </div>
       </div>
 

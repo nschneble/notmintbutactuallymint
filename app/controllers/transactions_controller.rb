@@ -19,13 +19,14 @@ class TransactionsController < ApplicationController
   def edit; end
 
   # POST /transactions or /transactions.json
-  def create
+  def create # rubocop:disable Metrics/MethodLength
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to transaction_url(@transaction), notice: notice_t(@transaction, :create) }
         format.json { render :show, status: :created, location: @transaction }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -53,6 +54,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to transactions_url, notice: notice_t(@transaction, :delete) }
       format.json { head :no_content }
+      format.turbo_stream
     end
   end
 
@@ -65,6 +67,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:description, :amount, :account_id)
+    params.require(:transaction).permit(:description, :amount, :account_id, :category_id)
   end
 end

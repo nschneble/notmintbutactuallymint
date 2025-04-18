@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_29_024838) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.date "date", default: "2024-08-20", null: false
+    t.date "date", default: "2024-09-16", null: false
     t.date "post_date"
     t.string "description", default: "", null: false
     t.float "amount", default: 0.0, null: false
